@@ -1,0 +1,635 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'course_model.dart';
+export 'course_model.dart';
+
+class CourseWidget extends StatefulWidget {
+  const CourseWidget({
+    super.key,
+    required this.course1,
+  });
+
+  final int? course1;
+
+  @override
+  State<CourseWidget> createState() => _CourseWidgetState();
+}
+
+class _CourseWidgetState extends State<CourseWidget> {
+  late CourseModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => CourseModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1, -1),
+                              child: Text(
+                                'WO',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Charm',
+                                      color: Color(0xFF050505),
+                                      fontSize: 70,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1, -1),
+                              child: Text(
+                                'MIND',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Charm',
+                                      color: Color(0xFF910000),
+                                      fontSize: 70,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(200, 0, 0, 0),
+                              child: Container(
+                                width: 853,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  color: Color(0x00FFFFFF),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment: AlignmentDirectional(0, 0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  750, 21, 36, 21),
+                                          child: FlutterFlowIconButton(
+                                            borderColor: Color(0x00FFFFFF),
+                                            borderRadius: 50,
+                                            borderWidth: 0,
+                                            buttonSize: 100,
+                                            fillColor: Color(0x00FFFFFF),
+                                            icon: Icon(
+                                              Icons.account_circle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 50,
+                                            ),
+                                            onPressed: () {
+                                              print('IconButton pressed ...');
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.46, -0.08),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(1),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              context.pushNamed('reviews');
+                                            },
+                                            text: 'REVIEWS',
+                                            options: FFButtonOptions(
+                                              height: 40,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(24, 0, 24, 0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                              color: Color(0x004B39EF),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Cutive',
+                                                        color: Colors.black,
+                                                        fontSize: 22,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                              elevation: 0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.06, -0.08),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(1),
+                                          child: FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: 'COMMUNITY',
+                                            options: FFButtonOptions(
+                                              height: 40,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(24, 0, 24, 0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                              color: Color(0x004B39EF),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Cutive',
+                                                    color: Color(0xFF050505),
+                                                    fontSize: 22,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                              elevation: 0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.58, -0.13),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(1),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              context.pushNamed('Course');
+                                            },
+                                            text: 'COURSES',
+                                            options: FFButtonOptions(
+                                              height: 40,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(24, 0, 24, 0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                              color: Color(0x004B39EF),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Cutive',
+                                                        color: Colors.black,
+                                                        fontSize: 22,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                              elevation: 0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.9, -0.13),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            context.pushNamed('HomePage');
+                                          },
+                                          text: 'HOME',
+                                          options: FFButtonOptions(
+                                            height: 40,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24, 0, 24, 0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 0),
+                                            color: Color(0x004B39EF),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Cutive',
+                                                      color: Colors.black,
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                            elevation: 0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 1479,
+                  height: 766,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.network(
+                          'https://picsum.photos/seed/599/600',
+                          width: 1593,
+                          height: 200,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-0.92, 0.17),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(0),
+                                  topLeft: Radius.circular(137),
+                                  topRight: Radius.circular(125),
+                                ),
+                                child: Container(
+                                  width: 265,
+                                  height: 342,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(0),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(137),
+                                      topRight: Radius.circular(125),
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0),
+                                    child: Image.network(
+                                      'https://www.shutterstock.com/shutterstock/videos/1106924807/thumb/1.jpg?ip=x480',
+                                      width: 125,
+                                      height: 125,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1, -0.98),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(19, 0, 0, 0),
+                                child: Text(
+                                  'C',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 131,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.86, -0.82),
+                              child: Text(
+                                'OURSE',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Color(0xFFE00000),
+                                      fontSize: 46,
+                                    ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.94, 0.16),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    678, 0, 0, 0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0),
+                                    bottomRight: Radius.circular(0),
+                                    topLeft: Radius.circular(125),
+                                    topRight: Radius.circular(125),
+                                  ),
+                                  child: Container(
+                                    width: 265,
+                                    height: 342,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(0),
+                                        bottomRight: Radius.circular(0),
+                                        topLeft: Radius.circular(125),
+                                        topRight: Radius.circular(125),
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(0),
+                                      child: Image.network(
+                                        'https://images.pexels.com/photos/6461158/pexels-photo-6461158.jpeg',
+                                        width: 300,
+                                        height: 200,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.28, 0.16),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(0),
+                                  topLeft: Radius.circular(125),
+                                  topRight: Radius.circular(125),
+                                ),
+                                child: Container(
+                                  width: 265,
+                                  height: 342,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(0),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(125),
+                                      topRight: Radius.circular(125),
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      'https://lh5.googleusercontent.com/z_jOPlUNFHiQA59-Uz-lRWQgx0YUoqT7pSdeFW29W_aarnPgZxRIk6GaonvsQk-tHxxOi6zs1qKfh-qvAPUb0OsfMttQ8-ZEc-BtZmKGXx2xfe8G3JN5U75q0vyTCETu_5vRPIWy=w400-h266',
+                                      width: 300,
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.23, 0.17),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    200, 0, 0, 0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0),
+                                    bottomRight: Radius.circular(0),
+                                    topLeft: Radius.circular(125),
+                                    topRight: Radius.circular(125),
+                                  ),
+                                  child: Container(
+                                    width: 265,
+                                    height: 342,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(0),
+                                        bottomRight: Radius.circular(0),
+                                        topLeft: Radius.circular(125),
+                                        topRight: Radius.circular(125),
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(0),
+                                      child: CachedNetworkImage(
+                                        fadeInDuration:
+                                            Duration(milliseconds: 500),
+                                        fadeOutDuration:
+                                            Duration(milliseconds: 500),
+                                        imageUrl:
+                                            'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHx3b21lbiUyMGluJTIwZWNvbW1lcmNlfGVufDB8fHx8MTcwODExMzAwNXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                        width: 300,
+                                        height: 200,
+                                        fit: BoxFit.fill,
+                                        alignment: Alignment(0, 1),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.91, 0.67),
+                              child: FFButtonWidget(
+                                onPressed: () async {},
+                                text: 'SEWING',
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0x034B39EF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .override(
+                                        fontFamily: 'Courgette',
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.88, 0.69),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed('Cooking');
+                                },
+                                text: 'COOKING',
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0x034B39EF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .override(
+                                        fontFamily: 'Courgette',
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.28, 0.68),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed('Freelancing');
+                                },
+                                text: 'FREELANCING',
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0x034B39EF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .override(
+                                        fontFamily: 'Courgette',
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.36, 0.67),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed('E-commerce');
+                                },
+                                text: 'E-COMMERCE',
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0x034B39EF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .override(
+                                        fontFamily: 'Courgette',
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.81, -0.8),
+                              child: Text(
+                                '\"THESE ARE SOME COURSES WHICH ARE BEING PROVIDED BY US\"',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      fontSize: 34,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
